@@ -1,0 +1,38 @@
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --d-distance: clamp(1rem, calc(1vw + 0.2vh), 1.8rem);
+  --d-dimension: clamp(3.5rem, calc(4vw + 0.2vh), 4.5rem);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  position: relative;
+  width: 100svw;
+  height: 100svh;
+  background-color: #0a66c2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
