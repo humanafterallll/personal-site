@@ -1,9 +1,20 @@
+@font-face {
+  font-family: "WhiteRabbit";
+  src: url("/fonts/White_Rabbit.ttf") format("truetype-variations");
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: url("/fonts/Consolas.ttf") format("truetype-variations");
+}
+
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --f-size: clamp(0.5rem, calc(1.9vh + 0.1vw), 1.1rem);
   --d-distance: clamp(1rem, calc(1vw + 0.2vh), 1.8rem);
   --d-dimension: clamp(3.5rem, calc(4vw + 0.2vh), 4.5rem);
 }
@@ -30,9 +41,4 @@
 body {
   position: relative;
   width: 100svw;
-  height: 100svh;
-  background-color: #0a66c2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

@@ -4,13 +4,14 @@ import styled from "styled-components";
 // Style
 //--------------------------------------------------------------------------------------------
 const Container = styled.div<{ $dimension?: string; $cursor?: boolean }>`
-  height: calc(var(--d-dimension) * 1.3);
+  height: calc(var(--d-dimension) * 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin-left: 0;
   @media (min-width: 35rem) {
-    height: calc(var(--d-dimension) * 1.8);
+    height: calc(var(--d-dimension) * 0.6);
   }
 `;
 
