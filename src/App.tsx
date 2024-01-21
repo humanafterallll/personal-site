@@ -56,6 +56,7 @@ const ImageContainer = styled.div`
 `;
 
 const ImageContainerInner = styled.div<{ $color: string }>`
+  position: relative;
   background-color: ${({ $color }) => $color};
   width: 100%;
   height: 100%;
@@ -63,15 +64,26 @@ const ImageContainerInner = styled.div<{ $color: string }>`
   overflow: hidden;
 `;
 
+const ImageBorder = styled.div<{ $color: string, $themeName: string }>`
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: calc(var(--d-distance) * 1.2);
+  border: ${({ $color, $themeName }) =>
+    $themeName === "light"
+      ? `calc(var(--d-distance) * 0.5) solid ${$color}`
+      : "unset"};
+`;
+
 const Picture = styled.img`
   width: 110%;
   height: 110%;
   object-fit: cover;
-  object-position: top 0 right calc(var(--d-distance) * -2.5);
+  object-position: top center;
   @media (min-width: 75rem) {
     width: 100%;
     height: 100%;
-    object-position: 50% 7%;
   }
 `;
 
@@ -260,6 +272,7 @@ export const App = () => {
     <MainSection $color={selectedTheme.secondaryColor}>
       <ImageContainer>
         <ImageContainerInner $color={selectedTheme.mainColor}>
+          <ImageBorder $themeName={selectedTheme.name} $color={selectedTheme.mainColor} />
           <Picture src={"/picture.webp"} />
         </ImageContainerInner>
       </ImageContainer>
