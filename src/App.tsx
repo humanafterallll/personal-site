@@ -64,10 +64,15 @@ const ImageContainerInner = styled.div<{ $color: string }>`
 `;
 
 const Picture = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 110%;
+  height: 110%;
   object-fit: cover;
-  object-position: top center;
+  object-position: top 0 right calc(var(--d-distance) * -2.5);
+  @media (min-width: 75rem) {
+    width: 100%;
+    height: 100%;
+    object-position: 50% 7%;
+  }
 `;
 
 const MainContainer = styled.div`
@@ -255,7 +260,7 @@ export const App = () => {
     <MainSection $color={selectedTheme.secondaryColor}>
       <ImageContainer>
         <ImageContainerInner $color={selectedTheme.mainColor}>
-          <Picture src={"/picture.jpg"} />
+          <Picture src={"/picture.webp"} />
         </ImageContainerInner>
       </ImageContainer>
       <MainContainer>
