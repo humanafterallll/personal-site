@@ -1,11 +1,8 @@
-@font-face {
-  font-family: "WhiteRabbit";
-  src: url("/fonts/White_Rabbit.ttf") format("truetype-variations");
-}
+@import url('https://fonts.cdnfonts.com/css/white-rabbit-2');
 
 @font-face {
-  font-family: "Avenir";
-  src: url("/fonts/Consolas.ttf") format("truetype-variations");
+  font-family: "Consolas";
+  src: url("/src/assets/fonts/Consolas.ttf") format("truetype-variations");
 }
 
 :root {
@@ -32,6 +29,7 @@
   -webkit-user-select: none;
   user-select: none;
   scrollbar-width: none;
+  font-family: "Consolas";
 }
 
 *::-webkit-scrollbar {
