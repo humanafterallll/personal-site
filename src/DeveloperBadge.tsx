@@ -26,11 +26,6 @@ const SVG = styled.svg`
   height: 100%;
 `;
 
-// Container
-const Rect = styled.rect<{ $backgroundColor?: string }>`
-  fill: ${({ $backgroundColor }) => $backgroundColor || "white"};
-`;
-
 // Eye
 const Circle = styled.circle<{ $eyeColor?: string }>`
   fill: ${({ $eyeColor }) => $eyeColor || "#00adee"};
