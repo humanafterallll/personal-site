@@ -34,7 +34,7 @@ const MainSection = styled.div<{ $color: string }>`
   background-color: ${({ $color }) => $color};
   width: 100svw;
   max-width: 120rem;
-  min-height: 100svh;
+  height: 100svh;
   display: flex;
   flex-wrap: wrap;
 `;
@@ -44,47 +44,43 @@ const ImageContainer = styled.div`
   height: 45svh;
   padding: calc(var(--d-distance) * 1.5) calc(var(--d-distance) * 1.5) 0
     calc(var(--d-distance) * 1.5);
-  @media (max-height: 30rem) {
+  @media (max-height: 40rem) {
     height: 100svh;
     width: 50%;
     padding: calc(var(--d-distance) * 1.5);
   }
-  @media (min-width: 75rem) {
+  @media (min-width: 75rem) and (min-height: 40rem) {
     padding: calc(var(--d-distance) * 2) calc(var(--d-distance) * 2) 0
       calc(var(--d-distance) * 2);
   }
 `;
 
-const ImageContainerInner = styled.div<{ $color: string }>`
-  position: relative;
-  background-color: ${({ $color }) => $color};
-  width: 100%;
-  height: 100%;
-  border-radius: calc(var(--d-distance) * 1.2);
-  overflow: hidden;
-`;
-
-const ImageBorder = styled.div<{ $color: string, $themeName: string }>`
+const ImageBorder = styled.div<{ $color: string; $themeName: string }>`
   position: absolute;
   z-index: 2;
-  width: 100%;
-  height: 100%;
+  width: calc(100% - var(--d-distance) * 3);
+  height: calc(100% - var(--d-distance) * 1.5);
   border-radius: calc(var(--d-distance) * 1.2);
   border: ${({ $color, $themeName }) =>
     $themeName === "light"
       ? `calc(var(--d-distance) * 0.5) solid ${$color}`
       : "unset"};
+  @media (max-height: 40rem) {
+    width: calc(100% - var(--d-distance) * 3);
+    height: calc(100% - var(--d-distance) * 3);
+  }
+  @media (min-width: 75rem) and (min-height: 40rem) {
+    width: calc(100% - var(--d-distance) * 4);
+    height: calc(100% - var(--d-distance) * 2);
+  }
 `;
 
 const Picture = styled.img`
-  width: 110%;
-  height: 110%;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
-  object-position: top center;
-  @media (min-width: 75rem) {
-    width: 100%;
-    height: 100%;
-  }
+  object-position: 0% 0%;
+  border-radius: calc(var(--d-distance) * 1.2);
 `;
 
 const MainContainer = styled.div`
@@ -96,11 +92,11 @@ const MainContainer = styled.div`
   justify-content: space-between;
   row-gap: calc(var(--d-distance) * 2);
   padding: calc(var(--d-distance) * 1.5);
-  @media (max-height: 30rem) {
+  @media (max-height: 40rem) {
     height: 100svh;
     width: 50%;
   }
-  @media (min-width: 75rem) {
+  @media (min-width: 75rem) and (min-height: 40rem) {
     width: 50%;
     height: 55svh;
     padding: calc(var(--d-distance) * 2);
@@ -112,7 +108,7 @@ const BadgeContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  @media (min-width: 75rem) {
+  @media (min-width: 75rem) and (min-height: 40rem) {
     justify-content: flex-start;
   }
 `;
@@ -129,10 +125,10 @@ const Job = styled.p<{ $color: string }>`
   font-size: calc(var(--f-size) * 1.6);
   color: ${({ $color }) => $color};
   width: auto;
-  @media (max-height: 30rem) {
+  @media (max-height: 40rem) {
     font-size: calc(var(--f-size) * 2);
   }
-  @media (min-width: 75rem) {
+  @media (min-width: 75rem) and (min-height: 40rem) {
     font-size: calc(var(--f-size) * 2);
   }
 `;
@@ -151,26 +147,27 @@ const Name = styled.p<{ $color: string }>`
   width: 100%;
   text-align: center;
   line-height: 0.8;
-  @media (max-height: 30rem) {
+  @media (max-height: 40rem) {
     font-size: calc(var(--f-size) * 5.5);
   }
-  @media (min-width: 75rem) {
+  @media (min-width: 75rem) and (min-height: 40rem) {
     text-align: left;
     font-size: calc(var(--f-size) * 6);
   }
 `;
 
-const ListContainer = styled.div`
+const ListContainer = styled.div<{ $color: string }>`
   width: 100%;
   height: 100lvh;
   display: flex;
   flex-direction: column;
   row-gap: calc(var(--d-distance) * 1.5);
-  @media (max-height: 30rem) {
+  background-color: ${({ $color }) => $color};
+  @media (max-height: 40rem) {
     flex-direction: row;
     row-gap: unset;
   }
-  @media (min-width: 75rem) {
+  @media (min-width: 75rem) and (min-height: 40rem) {
     width: 50%;
     height: 55svh;
     flex-direction: row;
@@ -186,11 +183,11 @@ const ListContainerInner1 = styled.div`
   align-items: center;
   justify-content: flex-end;
   row-gap: calc(var(--d-distance) * 2);
-  @media (max-height: 30rem) {
+  @media (max-height: 40rem) {
     height: 100%;
     justify-content: center;
   }
-  @media (min-width: 75rem) {
+  @media (min-width: 75rem) and (min-height: 40rem) {
     width: 50%;
     height: 100%;
     padding-left: calc(var(--d-distance) * 4);
@@ -202,11 +199,11 @@ const ListContainerInner1 = styled.div`
 
 const ListContainerInner2 = styled(ListContainerInner1)`
   justify-content: flex-start;
-  @media (max-height: 30rem) {
+  @media (max-height: 40rem) {
     height: 100%;
     justify-content: center;
   }
-  @media (min-width: 75rem) {
+  @media (min-width: 75rem) and (min-height: 40rem) {
     justify-content: flex-end;
     row-gap: calc(var(--d-distance) * 3);
     padding-bottom: calc(var(--d-distance) * 2);
@@ -216,10 +213,10 @@ const ListContainerInner2 = styled(ListContainerInner1)`
 const ListItem = styled.p<{ $color: string }>`
   font-size: calc(var(--f-size) * 2.5);
   color: ${({ $color }) => $color};
-  @media (max-height: 30rem) {
+  @media (max-height: 40rem) {
     font-size: calc(var(--f-size) * 4.3);
   }
-  @media (min-width: 75rem) {
+  @media (min-width: 75rem) and (min-height: 40rem) {
     font-size: calc(var(--f-size) * 3);
   }
 `;
@@ -233,10 +230,10 @@ const Footer = styled.div<{ $color: string }>`
   align-items: center;
   row-gap: calc(var(--d-distance) * 1);
   padding: calc(var(--d-distance) * 1.5);
-  @media (max-height: 30rem) {
+  @media (max-height: 40rem) {
     flex-direction: row;
   }
-  @media (min-width: 75rem) {
+  @media (min-width: 75rem) and (min-height: 40rem) {
     flex-direction: row;
   }
 `;
@@ -247,11 +244,11 @@ const Email = styled.p<{ $color: string }>`
   width: 100%;
   text-align: center;
   cursor: pointer;
-  @media (max-height: 30rem) {
+  @media (max-height: 40rem) {
     text-align: right;
     font-size: calc(var(--f-size) * 1.7);
   }
-  @media (min-width: 75rem) {
+  @media (min-width: 75rem) and (min-height: 40rem) {
     text-align: right;
     font-size: calc(var(--f-size) * 1.2);
   }
@@ -271,10 +268,11 @@ export const App = () => {
   return (
     <MainSection $color={selectedTheme.secondaryColor}>
       <ImageContainer>
-        <ImageContainerInner $color={selectedTheme.mainColor}>
-          <ImageBorder $themeName={selectedTheme.name} $color={selectedTheme.mainColor} />
-          <Picture src={"/picture.webp"} />
-        </ImageContainerInner>
+        <ImageBorder
+          $themeName={selectedTheme.name}
+          $color={selectedTheme.mainColor}
+        />
+        <Picture src={"/picture.webp"} />
       </ImageContainer>
       <MainContainer>
         <BadgeContainer>
@@ -295,7 +293,7 @@ export const App = () => {
           <Name $color={selectedTheme.mainColor}>Macciocchi</Name>
         </NameContainer>
       </MainContainer>
-      <ListContainer>
+      <ListContainer $color={selectedTheme.secondaryColor}>
         <ListContainerInner1>
           <ListItem $color={selectedTheme.mainColor}>HTML</ListItem>
           <ListItem $color={selectedTheme.mainColor}>CSS</ListItem>

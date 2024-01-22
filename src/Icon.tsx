@@ -10,10 +10,10 @@ const Container = styled.div`
   align-items: center;
   cursor: pointer;
   margin-left: 0;
-  @media (max-height: 30rem) {
+  @media (max-height: 40rem) {
     height: calc(var(--d-dimension) * 0.55);
   }
-  @media (min-width: 75rem) {
+  @media (min-width: 80rem) {
     height: calc(var(--d-dimension) * 0.6);
   }
 `;
