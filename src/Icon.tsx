@@ -13,7 +13,7 @@ const Container = styled.div`
   @media (max-height: 40rem) {
     height: calc(var(--d-dimension) * 0.55);
   }
-  @media (min-width: 80rem) {
+  @media (min-width: 75rem) {
     height: calc(var(--d-dimension) * 0.6);
   }
 `;
